@@ -1,5 +1,11 @@
+import React from "react";
+
 export default function Home() {
     return (
-        <>This is Autenticated User page</>
+        <React.Fragment>
+            <div>
+                Welcome Authenticated User!
+            </div>
+        </React.Fragment>
     )
 }

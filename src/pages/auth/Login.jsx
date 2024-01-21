@@ -4,6 +4,7 @@ import axios from "axios";
 export default function Login() {
 
     const loginAPI = 'https://tararoutray.com/demo/react-auth/login.php';
+
     const navigate = useNavigate();
 
     const submitLoginForm = (event) => {
@@ -35,7 +36,7 @@ export default function Login() {
             localStorage.setItem('user-token', token);
 
             setTimeout(() => {
-                navigate('/');
+                navigate('/home');
             }, 500);
 
         }).catch((error) => {
@@ -69,7 +70,7 @@ export default function Login() {
                                 </label>
                                 <input type="password" placeholder="password" className="input input-bordered" required />
                                 <label className="label">
-                                    <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
+                                    <a href="/" className="label-text-alt link link-hover">Forgot password?</a>
                                 </label>
                             </div>
                             <div className="form-control mt-6">

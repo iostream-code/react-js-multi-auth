@@ -1,11 +1,9 @@
-import React, { useEffect, useState } from "react";
-import { Route, useNavigate } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Outlet } from "react-router-dom";
+import Navbar from "../../components/Navbar";
 
-const ProtectedRoute = (props) => {
-
+export default function AuthenticatedLayout() {
     const [isLogin, setIsLogin] = useState(false);
-
-    const navigate = useNavigate();
 
     const checkUserToken = () => {
 
@@ -13,25 +11,19 @@ const ProtectedRoute = (props) => {
 
         if (!userToken || userToken === 'undefined') {
             setIsLogin(false);
-            return navigate('/login');
         }
 
         setIsLogin(true);
     }
 
     useEffect(() => {
-
         checkUserToken();
-
     }, [isLogin]);
 
     return (
         <React.Fragment>
-            {
-                isLogin ? props.children : null
-            }
+            {isLogin && <Navbar />}
+            <Outlet />
         </React.Fragment>
-    );
+    )
 }
-
-export default ProtectedRoute;
