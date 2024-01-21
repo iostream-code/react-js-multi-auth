@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 export default function Login() {
+
     const loginAPI = 'https://tararoutray.com/demo/react-auth/login.php';
     const navigate = useNavigate();
 
